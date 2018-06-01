@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Join</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Wish shop project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles/bootstrap4/bootstrap.min.css">
+    <link href="stylesheets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles/cart.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles/cart_responsive.css">
+    <script src="/javascript/jquery-3.3.1.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script>
+      $(function(){
+
+          $("#btnJoin").click(
+              function(){
+                  if($("#if").val() == "")
+                  {
+                      alert("아이디를 꼭 입력 하세요");
+                      $("#id").focus();
+                      return;
+                  }
+                  if($("#passwd").val() == "")
+                  {
+                      alert("비밀번호를 꼭 입력 하세요");
+                      $("#passwd").focus();
+                      return ;
+                  }
+                  if($("#name").val() == "")
+                  {
+                      alert("이름을 꼭 입력 하세요");
+                      $("#name").focus();
+                      return ;
+                  }
+                  if($("#email").val() == "")
+                  {
+                      alert("이메일을 꼭 입력 하세요");
+                      $("#email").focus();
+                      return ;
+                  }
+                  if($("#tel1").val() == "")
+                  {
+                      alert("전화번호 첫번째 자리를 확인해 주세요");
+                      $("#tel1").focus();
+                      return ;
+                  }
+                  if($("#tel2").val() == "")
+                  {
+                      alert("전화번호 두번째 자리를 확인해 주세요");
+                      $("#tel2").focus();
+                      return ;
+                  }
+                  if($("#tel3").val() == "")
+                  {
+                      alert("전화번호 세번쨰 자리를 확인해 주세요");
+                      $("#tel3").focus();
+                      return ;
+                  }
+
+                  var tel= $("#tel1").val() +'-' +$("#tel2").val() + '-' +$("#tel3").val();
+                  $("#tel").val(tel);
+
+                  if($("#address").val() == "")
+                  {
+                      alert("주소를 꼭 입력해 주세요");
+                      $("#address").focus();
+                      return ;
+                  }
+                  if($("#birth").val() == "")
+                  {
+                      alert("생일을 꼭 입력해 주세요");
+                      $("#birth").focus();
+                      return ;
+                  }
+                  if($("#birth").val().length != 8)
+                  {
+                      alert("생일은 8글자로 입력해 주세요");
+                      $("#birth").focus();
+                      return ;
+                  }
+                  if(isNaN($("#birth").val()))
+                  {
+                      alert("생일은 숫자만 입력해 주세요");
+                      $("#birth").focus();
+                      return ;
+                  }
+                  $("#joinForm").submit();
+              }
+          );
+      });
+    </script>
+  </head>
+  <body>
+
+  <div class="super_container">
+
+    <!-- Header -->
+
+    <header class="header">
+      <div class="header_inner d-flex flex-row align-items-center justify-content-start">
+        <div class="logo"><a href="#">Wish</a></div>
+        <nav class="main_nav">
+          <ul>
+            <li><a href="index">home</a></li>
+            <li><a href="categories">clothes</a></li>
+            <li><a href="categories">accessories</a></li>
+            <li><a href="categories">lingerie</a></li>
+            <li><a href="contact">contact</a></li>
+          </ul>
+        </nav>
+        <div class="header_content ml-auto">
+          <div class="search header_search">
+            <form action="#">
+              <input type="search" class="search_input" required="required">
+              <button type="submit" id="search_button" class="search_button"><img src="images/magnifying-glass.svg" alt=""></button>
+            </form>
+          </div>
+          <div class="shopping">
+            <!-- Cart -->
+            <a href="#">
+              <div class="cart">
+                <img src="images/shopping-bag.svg" alt="">
+                <div class="cart_num_container">
+                  <div class="cart_num_inner">
+                    <div class="cart_num">1</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <!-- Star -->
+            <a href="#">
+              <div class="star">
+                <img src="images/star.svg" alt="">
+                <div class="star_num_container">
+                  <div class="star_num_inner">
+                    <div class="star_num">0</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <!-- Avatar -->
+            <a href="#">
+              <div class="avatar">
+                <img src="images/avatar.svg" alt="">
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="burger_container d-flex flex-column align-items-center justify-content-around menu_mm"><div></div><div></div><div></div></div>
+      </div>
+    </header>
+
+    <!-- Menu -->
+
+    <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+      <div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+      <div class="logo menu_mm"><a href="#">Wish</a></div>
+      <div class="search">
+        <form action="#">
+          <input type="search" class="search_input menu_mm" required="required">
+          <button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm" src="images/magnifying-glass.svg" alt=""></button>
+        </form>
+      </div>
+      <nav class="menu_nav">
+        <ul class="menu_mm">
+          <li class="menu_mm"><a href="index">home</a></li>
+          <li class="menu_mm"><a href="#">clothes</a></li>
+          <li class="menu_mm"><a href="#">accessories</a></li>
+          <li class="menu_mm"><a href="#">lingerie</a></li>
+          <li class="menu_mm"><a href="#">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Home -->
+
+    <div class="home">
+      <div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/cart.jpg" data-speed="0.8"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="home_container">
+              <div class="home_content">
+                <div class="home_title">Join US</div>
+                <div class="breadcrumbs">
+                  <ul>
+                    <li><a href="index">Home</a></li>
+                    <li>Registration</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--
+    <form id="joinForm" action="/join" method="post">
+      <table width="400" border="1">
+        <tr>
+          <th>아이디</th>
+          <td><input type="text" name="id" id="id" size="12" maxLenght="12"></td>
+        </tr>
+        <tr>
+          <th>비밀번호</th>
+          <td><input type="password" name="passwd" id="passwd" size="12" maxLenght="12"></td>
+        </tr>
+        <tr>
+          <th>이름</th>
+          <td><input type="text" name="name" id="name" size="10" maxLenght="10"></td>
+        </tr>
+        <tr>
+          <th>이메일</th>
+          <td><input type="email" name="email" id="email" size="30" maxLenght="50"></td>
+        </tr>
+        <tr>
+          <th>전화번호</th>
+          <td>
+            <input type="hidden" name="tel" id="tel">
+            <select name="tel1" id="tel1">
+              <option value="010">010</option>
+              <option value="011">011</option>
+              <option value="016">016</option>
+              <option value="017">017</option>
+              <option value="018">018</option>
+              <option value="019">019</option>
+            </select>
+            -
+            <input type="text" name = "tel2" id="tel2" size="4" maxLenght="4">
+            -
+            <input type="text" name = "tel3" id="tel3" size="4" maxLenght="4">
+          </td>
+        </tr>
+        <tr>
+          <th>주소</th>
+          <td><input type="text" id="address" size="30" maxLenght="50"></td>
+        </tr>
+        <tr>
+          <th>직업</th>
+          <td><select name="job" id="job">
+              <option value = "학생" >학생</option>
+              <option value = "직장인">직장인</option>
+              <option value = "주부">주부</option>
+            </select></td>
+        </tr>
+        <tr>
+          <th>성별</th>
+          <td>
+            <input type="radio" name="gender" value="남" checked="checked">남
+            <input type="radio" name="gender" value="여">여
+          </td>
+        </tr>
+        <tr>
+          <th>생일</th>
+          <td><input type="text" name = "birth" id="birth" size="8" maxLenght="8"></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="button" name = "join" id="btnJoin" value="가입">
+            <input type="reset" name="cancel" value="취소">
+          </td>
+        </tr>
+      </table>
+    </form>
+-->
+    <article class="container">
+      <div class="page-header">
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <form role="form">
+          <div class="form-group">
+            <label for="InputEmail">이메일 주소</label>
+            <input type="email" class="form-control" id="InputEmail" placeholder="이메일 주소">
+          </div>
+          <div class="form-group">
+            <label for="InputPassword1">비밀번호</label>
+            <input type="password" class="form-control" id="InputPassword1" placeholder="비밀번호">
+          </div>
+          <div class="form-group">
+            <label for="InputPassword2">비밀번호 확인</label>
+            <input type="password" class="form-control" id="InputPassword2" placeholder="비밀번호 확인">
+            <p class="help-block">비밀번호 확인을 위해 다시한번 입력 해 주세요</p>
+          </div>
+          <div class="form-group">
+            <label for="username">이름</label>
+            <input type="text" class="form-control" id="username" placeholder="이름을 입력해 주세요">
+          </div>
+
+          <div class="form-group">
+            <label>약관 동의</label>
+            <div data-toggle="buttons">
+              <label class="btn btn-primary active">
+                <span class="fa fa-check"></span>
+                <input id="agree" type="checkbox" autocomplete="off" checked>
+              </label>
+              <a href="#">이용약관</a>에 동의합니다.
+            </div>
+          </div>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-info">회원가입<i class="fa fa-check spaceLeft"></i></button>
+            <button type="submit" class="btn btn-warning">가입취소<i class="fa fa-times spaceLeft"></i></button>
+          </div>
+        </form>
+      </div>
+
+
+
+
+      <!-- Newsletter -->
+
+    <div class="newsletter">
+      <div class="newsletter_content">
+        <div class="newsletter_image parallax-window" data-parallax="scroll" data-image-src="images/cart_nl.jpg" data-speed="0.8"></div>
+        <div class="container">
+          <div class="row options">
+
+            <!-- Options Item -->
+            <div class="col-lg-3">
+              <div class="options_item d-flex flex-row align-items-center justify-content-start">
+                <div class="option_image"><img src="images/option_1.png" alt=""></div>
+                <div class="option_content">
+                  <div class="option_title">30 Days Returns</div>
+                  <div class="option_subtitle">No questions asked</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Options Item -->
+            <div class="col-lg-3">
+              <div class="options_item d-flex flex-row align-items-center justify-content-start">
+                <div class="option_image"><img src="images/option_2.png" alt=""></div>
+                <div class="option_content">
+                  <div class="option_title">Free Delivery</div>
+                  <div class="option_subtitle">On all orders</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Options Item -->
+            <div class="col-lg-3">
+              <div class="options_item d-flex flex-row align-items-center justify-content-start">
+                <div class="option_image"><img src="images/option_3.png" alt=""></div>
+                <div class="option_content">
+                  <div class="option_title">Secure Payments</div>
+                  <div class="option_subtitle">No need to worry</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Options Item -->
+            <div class="col-lg-3">
+              <div class="options_item d-flex flex-row align-items-center justify-content-start">
+                <div class="option_image"><img src="images/option_4.png" alt=""></div>
+                <div class="option_content">
+                  <div class="option_title">24/7 Support</div>
+                  <div class="option_subtitle">Just call us</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row newsletter_row">
+            <div class="col">
+              <div class="section_title_container text-center">
+                <div class="section_subtitle">only the best</div>
+                <div class="section_title">subscribe for a 20% discount</div>
+              </div>
+            </div>
+          </div>
+          <div class="row newsletter_container">
+            <div class="col-lg-10 offset-lg-1">
+              <div class="newsletter_form_container">
+                <form action="#">
+                  <input type="email" class="newsletter_input" required="required" placeholder="E-mail here">
+                  <button type="submit" class="newsletter_button">subscribe</button>
+                </form>
+              </div>
+              <div class="newsletter_text">Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestib ulum ultrices nulla. Aliquam egestas tempor leo.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <div class="footer_logo"><a href="index">Wish</a></div>
+            <nav class="footer_nav">
+              <ul>
+                <li><a href="index">home</a></li>
+                <li><a href="categories">clothes</a></li>
+                <li><a href="categories">accessories</a></li>
+                <li><a href="categories">lingerie</a></li>
+                <li><a href="contact">contact</a></li>
+              </ul>
+            </nav>
+            <div class="footer_social">
+              <ul>
+                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+            <div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="javascripts/jquery-3.2.1.min.js"></script>
+  <script src="stylesheets/tyles/bootstrap4/popper.js"></script>
+  <script src="stylesheets/styles/bootstrap4/bootstrap.min.js"></script>
+  <script src="stylesheets/plugins/easing/easing.js"></script>
+  <script src="stylesheets/plugins/parallax-js-master/parallax.min.js"></script>
+  <script src="javascripts/cart_custom.js"></script>
+  </body>
+</html>
