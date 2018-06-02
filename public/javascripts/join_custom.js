@@ -109,7 +109,5 @@ $(".submit").click(function() {
 
     var name= $("#fname").val+$("#lname");
     $("#name").val(name);
-
-
 	return;
 })
