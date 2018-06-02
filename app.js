@@ -12,6 +12,8 @@ var checkoutRouter=require('./routes/checkout');
 var cartRouter=require('./routes/cart');
 var productRouter=require('./routes/product');
 var joinForm = require('./routes/joinForm');
+//login 세션 처리부
+var login = require('./routes/login');
 
 var app = express();
 
@@ -34,6 +36,7 @@ app.use('/checkout',checkoutRouter);
 app.use('/cart',cartRouter);
 app.use('/product',productRouter);
 app.use('/join',joinForm);
+app.use('/login',login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
