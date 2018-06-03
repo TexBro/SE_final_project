@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src = "/javascripts/jquery-3.2.1.js"></script>
+	<title><%= title %></title>
+	<link rel = 'stylesheet' href = '/stylesheets/bootstrap.min.css' />
+</head>
+<body>
+<h1><%= title %></h1>
+
+<form action = "/productlist/productwrite" method = "post" enctype = "multipart/form-data">
+	<table border = "1">
+		<tr>
+			<td>TITLE</td>
+			<td><input type = "text" name = "TITLE_ID" id = "TITLE_ID" required/></td>
+		</tr>
+		<tr>
+			<td>PRICE</td>
+			<td><input type = "text" name = "PRICE" id = "PRICE" required/></td>
+		</tr>
+		<tr>
+			<td>DETAIL</td>
+			<td><textarea name = "DETAIL" id = "DETAIL" cols = "30" rows = "10" required></textarea></td>
+		</tr>
+		<tr>
+			<td>IMAGE</td>
+			<td><input type = "file" name = "userfile" /></td>
+		</tr>
+		<tr>
+			<td colspan = "2">
+				<button type = "submit">제품등록</button>
+			</td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

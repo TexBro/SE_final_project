@@ -12,6 +12,8 @@ var checkoutRouter=require('./routes/checkout');
 var cartRouter=require('./routes/cart');
 var productRouter=require('./routes/product');
 var joinForm = require('./routes/joinForm');
+var list =require('./routes/productlist');
+var write = require('./routes/productlist');
 
 //login 세션 처리부
 var login = require('./routes/login');
@@ -58,21 +60,22 @@ app.use('/cart',cartRouter);
 app.use('/product',productRouter);
 app.use('/join',joinForm);
 app.use('/login',login);
-
+app.use('/productlist', list);
+app.use('./productwrite', write);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
 // error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 module.exports = app;

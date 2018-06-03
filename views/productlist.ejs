@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "viewport" content = "width=device-width, initial-scale = 1">
+	<title>부트스트랩 공부</title>
+	<link rel = "stylesheet" href = "stylesheets/bootstrap.min.css">
+</head>
+<body>
+<div class = "container">
+	<table class = "table table-striped">
+		<thead>
+		<tr>
+			<th>BOARD_ID</th>
+			<th>ITEM_ID</th>
+			<th>TITLE</th>
+		</tr>
+		</thead>
+		<tbody>
+		<%
+		for(var i = 0 ; i < rows.length; i++)
+		{
+			var oneItem = rows[i];
+		%>
+		<tr>
+			<td><%=oneItem.BOARD_ID%></td>
+			<td><%=oneItem.ITEM_ID%></td>
+			<td><%=oneItem.TITLE%></td>
+		</tr>
+		<%
+		}
+		%>
+		</tbody>
+	</table>
+	<hr/>
+	<a class = "btn btn-default pull-right" href = "/productlist/productwrite">글쓰기</a>
+	<div  class = "text-center">
+		<ul class = "pagination">
+			<li><a href = '#'>1</a></li>
+			<li><a href = '#'>2</a></li>
+			<li><a href = '#'>3</a></li>
+			<li><a href = '#'>4</a></li>
+			<li><a href = '#'>5</a></li>
+		</ul>
+	</div>
+</div>
+
+<script src = "javascripts/jquery-3.2.1.min.js"></script>
+<script src = "javascripts/bootstrap.min.js"></script>
+</body>
+</html>
