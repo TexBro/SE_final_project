@@ -12,18 +12,40 @@ var checkoutRouter=require('./routes/checkout');
 var cartRouter=require('./routes/cart');
 var productRouter=require('./routes/product');
 var joinForm = require('./routes/joinForm');
+//login 세션 처리부
+var login = require('./routes/login');
+
+
+//login 세션 설정 및 처리부
+var passport = require('passport') //passport module add
+    , LocalStrategy = require('passport-local').Strategy;
+var cookieSession = require('cookie-session');
+var flash = require('connect-flash');
+
+//login 세션 심화
+var mysql_dbc = require('./commons/db_con.js')();
+var connection = mysql_dbc.init();
 
 var app = express();
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(express.static(path.join(__dirname, 'node_modules')));//session용 app.use
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieSession({
+    keys: ['node_yun'],
+    cookie: {
+        maxAge: 1000 * 60 * 60 // 유효기간 1시간
+    }
+}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/index',indexRouter);
@@ -34,6 +56,7 @@ app.use('/checkout',checkoutRouter);
 app.use('/cart',cartRouter);
 app.use('/product',productRouter);
 app.use('/join',joinForm);
+app.use('/login',login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
