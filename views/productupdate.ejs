@@ -8,8 +8,9 @@
 <body>
 <h1><%= title %></h1>
 
-<form action = "/productlist/productwrite" method = "post" enctype = "multipart/form-data">
+<form action = "/productlist/productupdate" method = "post" enctype = "multipart/form-data">
 	<table border = "1">
+			<input type = "hidden" name = "ITEM_ID" value = "<%= row.ITEM_ID %>"/>
 		<tr>
 			<td>TITLE</td>
 			<td><input type = "text" name = "TITLE_ID" id = "TITLE_ID" required/></td>
@@ -28,7 +29,7 @@
 		</tr>
 		<tr>
 			<td colspan = "2">
-				<button type = "submit">제품등록</button>
+				<button type = "submit">제품수정</button>
 			</td>
 		</tr>
 	</table>

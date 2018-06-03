@@ -92,4 +92,61 @@ router.get('/productdelete/:ITEM_ID', function(req,res,next){
         });
     });
 });
+router.get('/productupdate/:ITEM_ID', function(req,res,next)
+{
+
+    var ITEM_ID = req.params.ITEM_ID;
+
+    pool.getConnection(function(err,connection)
+    {
+        if(err) console.error("커넥션 객체 얻어오기 에러 : ", err);
+
+        var sql = "select ITEM_ID, product_name, product_price, description, image1 from t_item where ITEM_ID=?";
+        connection.query(sql, [ITEM_ID], function(err, rows)
+        {
+            if(err) console.error(err);
+            console.log("update에서 1개 글 조회 결과 확인 : ", rows);
+            res.render('productupdate', {title:"글 수정", row:rows[0]});
+            connection.release();
+        });
+
+
+    });
+});
+
+router.post('/productupdate', upload.single('userfile'),  function(req, res, next)
+{
+    var ITEM_ID =req.body.ITEM_ID;
+    var PRODUCT_NAME = req.body.TITLE_ID;
+    var PRODUCT_PRICE = req.body.PRICE;
+    var DETAIL = req.body.DETAIL;
+    //console.log("fasddd")
+    var IMAGE = '';
+    if(req.file) {
+        IMAGE = req.file.originalname;
+    }
+    //console.log("fasddd")
+    var datas = [PRODUCT_NAME, PRODUCT_PRICE, DETAIL, IMAGE, ITEM_ID];
+    console.log(datas)
+    var datas2 = [PRODUCT_NAME, ITEM_ID];
+    pool.getConnection(function(err, connection)
+    {
+        var sql = "update t_item set product_name =?, product_price =?, description = ? , image1 = ? where ITEM_ID=? ";
+        connection.query(sql,datas, function(err, result) {
+            console.log(result);
+            if (err) console.error("글 수정 중 에러 발생 : ", err);
+            //res.redirect('/productlist');
+            //connection.release();
+        });
+
+        var sql2 = "update t_board set TITLE =? where ITEM_ID=? ";
+        connection.query(sql2,datas2, function(err, result) {
+            console.log(result);
+            if (err) console.error("글 수정 중 에러 발생 : ", err);
+            res.redirect('/productlist');
+            connection.release();
+        });
+    });
+});
+
 module.exports = router;
