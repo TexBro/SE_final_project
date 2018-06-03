@@ -2,7 +2,6 @@
 
 CREATE TABLE T_USER (
 	user_id INT(11) NOT NULL auto_increment,
-    login_id VARCHAR(100) NOT NULL,
     passwd VARCHAR(100) NOT NULL,
     name VARCHAR(100) NOT NULL,
     tel VARCHAR(100) NOT NULL,
@@ -30,15 +29,6 @@ CREATE TABLE T_ITEM(
     foreign key(user_id) references T_USER(user_id)
 )COLLATE = 'utf8_general_ci';    
     
-    
-CREATE TABLE T_VERIFY(
-	user_id INT(11),
-    v_type VARCHAR(100),
-    v_token VARCHAR(100),
-    verify_check DATETIME,
-    verify_date DATETIME
-);
-
 CREATE TABLE T_CART(
 	cart_id INT(11) NOT NULL auto_increment,
     user_id INT(11) NOT NULL,
