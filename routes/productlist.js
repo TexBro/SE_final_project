@@ -46,10 +46,9 @@ router.post('/productwrite', upload.single('userfile'), function(req, res, next)
     //var IMAGE = req.body.IMAGE;
     var IMAGE = '';
     if(req.file) {
-        img = req.file.originalname;
+        IMAGE = req.file.originalname;
     }
     var datas = [TITLE_ID, PRICE, DETAIL, IMAGE];
-
     pool.getConnection(function(err, connection)
     {
         var sqlForInsertITEM = "insert into T_ITEM(PRODUCT_NAME, PRODUCT_PRICE, DESCRIPTION, IMAGE1) values(?,?,?,?)";
@@ -71,10 +70,26 @@ router.post('/productwrite', upload.single('userfile'), function(req, res, next)
                 connection.release();
             });
         });
-
-
-
     });
 });
+router.get('/productdelete/:ITEM_ID', function(req,res,next){
+    pool.getConnection(function(err,connection){
+        if(err) console.error("커넥션 객체 얻어오기 에러: ",err);
+        var sql = "DELETE FROM t_board WHERE ITEM_ID = ?";
+        connection.query(sql, [req.params.ITEM_ID], function(err,rows){
+            if(err) console.error(err);
 
+            console.log("delete 실시 대상 : ",rows);
+            //res.redirect('/productlist')
+        });
+
+        var sql2 = "DELETE FROM t_item WHERE ITEM_ID = ?";
+        connection.query(sql2, [req.params.ITEM_ID], function(err,rows){
+            if(err) console.error(err);
+
+            console.log("delete 실시 대상 : ",rows);
+            res.redirect('/productlist')
+        });
+    });
+});
 module.exports = router;

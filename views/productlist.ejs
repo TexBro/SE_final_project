@@ -14,6 +14,7 @@
 			<th>BOARD_ID</th>
 			<th>ITEM_ID</th>
 			<th>TITLE</th>
+			<th>DELETE</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -26,6 +27,7 @@
 			<td><%=oneItem.BOARD_ID%></td>
 			<td><%=oneItem.ITEM_ID%></td>
 			<td><%=oneItem.TITLE%></td>
+			<td><a href = "/productlist/productdelete/<%=oneItem.ITEM_ID%>">DELETE</a></td>
 		</tr>
 		<%
 		}
