@@ -25,9 +25,6 @@ var flash = require('connect-flash');
 //login 세션 심화
 var mysql_dbc = require('./commons/db_con.js')();
 var connection = mysql_dbc.init();
-var bcrypt = require('bcrypt');
-
-
 
 var app = express();
 // view engine setup
