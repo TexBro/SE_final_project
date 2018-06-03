@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66133c29-e303-4c6d-8dc2-d015d7b46b78" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB 설계서/DB Qeury 실행문/2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB 설계서/DB Qeury 실행문/2.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB 설계서/SW_Project3_DB_Spec.xls" beforeDir="false" afterPath="$PROJECT_DIR$/DB 설계서/SW_Project3_DB_Spec.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB 설계서/논리설계.png" beforeDir="false" afterPath="$PROJECT_DIR$/DB 설계서/논리설계.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB 설계서/논리설계.xml" beforeDir="false" afterPath="$PROJECT_DIR$/DB 설계서/논리설계.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,7 +26,7 @@
       <file leaf-file-name="index.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="6095">
               <caret line="265" column="26" selection-start-line="265" selection-start-column="26" selection-end-line="265" selection-end-column="26" />
             </state>
           </provider>
@@ -38,20 +41,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="101">
+              <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+            <state relative-caret-position="161">
+              <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -145,13 +148,18 @@
       <path value="$PROJECT_DIR$/node_modules/component-emitter/package.json" />
       <path value="$PROJECT_DIR$/node_modules/concat-map/package.json" />
       <path value="$PROJECT_DIR$/node_modules/configstore/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/connect-flash/package.json" />
       <path value="$PROJECT_DIR$/node_modules/content-disposition/package.json" />
       <path value="$PROJECT_DIR$/node_modules/content-type/package.json" />
       <path value="$PROJECT_DIR$/node_modules/cookie-parser/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/cookie-session/node_modules/debug/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/cookie-session/package.json" />
       <path value="$PROJECT_DIR$/node_modules/cookie-signature/package.json" />
       <path value="$PROJECT_DIR$/node_modules/cookie/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/cookies/package.json" />
       <path value="$PROJECT_DIR$/node_modules/copy-descriptor/package.json" />
       <path value="$PROJECT_DIR$/node_modules/core-util-is/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/crc/package.json" />
       <path value="$PROJECT_DIR$/node_modules/create-error-class/package.json" />
       <path value="$PROJECT_DIR$/node_modules/cross-spawn/package.json" />
       <path value="$PROJECT_DIR$/node_modules/crypto-random-string/package.json" />
@@ -178,6 +186,7 @@
       <path value="$PROJECT_DIR$/node_modules/expand-brackets/node_modules/define-property/package.json" />
       <path value="$PROJECT_DIR$/node_modules/expand-brackets/node_modules/extend-shallow/package.json" />
       <path value="$PROJECT_DIR$/node_modules/expand-brackets/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/express-session/package.json" />
       <path value="$PROJECT_DIR$/node_modules/express/package.json" />
       <path value="$PROJECT_DIR$/node_modules/extend-shallow/node_modules/is-extendable/package.json" />
       <path value="$PROJECT_DIR$/node_modules/extend-shallow/package.json" />
@@ -243,6 +252,7 @@
       <path value="$PROJECT_DIR$/node_modules/isarray/package.json" />
       <path value="$PROJECT_DIR$/node_modules/isexe/package.json" />
       <path value="$PROJECT_DIR$/node_modules/isobject/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/keygrip/package.json" />
       <path value="$PROJECT_DIR$/node_modules/kind-of/package.json" />
       <path value="$PROJECT_DIR$/node_modules/latest-version/package.json" />
       <path value="$PROJECT_DIR$/node_modules/lowercase-keys/package.json" />
@@ -282,12 +292,16 @@
       <path value="$PROJECT_DIR$/node_modules/package-json/package.json" />
       <path value="$PROJECT_DIR$/node_modules/parseurl/package.json" />
       <path value="$PROJECT_DIR$/node_modules/pascalcase/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/passport-local/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/passport-strategy/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/passport/package.json" />
       <path value="$PROJECT_DIR$/node_modules/path-dirname/package.json" />
       <path value="$PROJECT_DIR$/node_modules/path-is-absolute/package.json" />
       <path value="$PROJECT_DIR$/node_modules/path-is-inside/package.json" />
       <path value="$PROJECT_DIR$/node_modules/path-key/package.json" />
       <path value="$PROJECT_DIR$/node_modules/path-to-regexp/package.json" />
       <path value="$PROJECT_DIR$/node_modules/pause-stream/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/pause/package.json" />
       <path value="$PROJECT_DIR$/node_modules/pify/package.json" />
       <path value="$PROJECT_DIR$/node_modules/posix-character-classes/package.json" />
       <path value="$PROJECT_DIR$/node_modules/prepend-http/package.json" />
@@ -297,6 +311,7 @@
       <path value="$PROJECT_DIR$/node_modules/pseudomap/package.json" />
       <path value="$PROJECT_DIR$/node_modules/pstree.remy/package.json" />
       <path value="$PROJECT_DIR$/node_modules/qs/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/random-bytes/package.json" />
       <path value="$PROJECT_DIR$/node_modules/range-parser/package.json" />
       <path value="$PROJECT_DIR$/node_modules/raw-body/node_modules/depd/package.json" />
       <path value="$PROJECT_DIR$/node_modules/raw-body/node_modules/http-errors/package.json" />
@@ -361,6 +376,7 @@
       <path value="$PROJECT_DIR$/node_modules/to-regex/package.json" />
       <path value="$PROJECT_DIR$/node_modules/touch/package.json" />
       <path value="$PROJECT_DIR$/node_modules/type-is/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/uid-safe/package.json" />
       <path value="$PROJECT_DIR$/node_modules/undefsafe/package.json" />
       <path value="$PROJECT_DIR$/node_modules/union-value/node_modules/extend-shallow/package.json" />
       <path value="$PROJECT_DIR$/node_modules/union-value/node_modules/set-value/package.json" />
@@ -388,10 +404,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="18" />
-    <option name="y" value="10" />
+    <option name="x" value="178" />
+    <option name="y" value="54" />
     <option name="width" value="1245" />
-    <option name="height" value="730" />
+    <option name="height" value="585" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -399,7 +415,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -415,12 +430,6 @@
             <path>
               <item name="SE_final" type="b2602c69:ProjectViewProjectNode" />
               <item name="SE_final" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SE_final" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SE_final" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -432,12 +441,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.9.4" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SE_final working" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -473,48 +483,37 @@
       <updated>1527777941573</updated>
       <workItem from="1527777942964" duration="306000" />
       <workItem from="1527833899815" duration="5639000" />
+      <workItem from="1528012305869" duration="86000" />
+      <workItem from="1528013254475" duration="386000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6506000" />
+    <option name="totallyTimeSpent" value="6978000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="18" y="10" width="1245" height="730" extended-state="0" />
-    <editor active="true" />
+    <frame x="178" y="54" width="1245" height="585" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83756346" visible="true" weight="0.13670257" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.83632284" visible="true" weight="0.15161557" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info id="DB Browser" order="2" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.63282573" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2309417" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32994923" />
-      <window_info id="Favorites" order="2" sideWeight="0.16243654" side_tool="true" visible="true" weight="0.13670257" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3295964" />
+      <window_info id="Favorites" order="2" sideWeight="0.16367713" side_tool="true" visible="true" weight="0.15161557" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8428571" visible="true" weight="0.13692947" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23317684" />
-      <window_info id="DB Browser" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="2" sideWeight="0.15714286" side_tool="true" visible="true" weight="0.13692947" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -524,20 +523,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/contact_custom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2576">
           <caret line="112" column="5" lean-forward="true" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -628,9 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2576">
           <caret line="112" column="5" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -759,9 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
           <caret line="357" column="47" selection-start-line="357" selection-start-column="47" selection-end-line="357" selection-end-column="47" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#p#0;n#div#0;n#div#1;n#div#3;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -809,7 +792,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="6095">
           <caret line="265" column="26" selection-start-line="265" selection-start-column="26" selection-end-line="265" selection-end-column="26" />
         </state>
       </provider>
@@ -830,17 +813,24 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/join.ejs" />
-    <entry file="file://$PROJECT_DIR$/routes/login.js">
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        <state relative-caret-position="161">
+          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="101">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
         </state>
       </provider>
     </entry>
