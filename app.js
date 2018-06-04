@@ -62,6 +62,9 @@ app.use('/join',joinForm);
 app.use('/login',login);
 app.use('/productlist', list);
 app.use('./productwrite', write);
+app.use('/cart',express.static('public'));
+app.use('/product',express.static('public'));
+app.use('/categories',express.static('public'));
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
