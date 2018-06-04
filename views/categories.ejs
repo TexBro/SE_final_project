@@ -21,14 +21,14 @@
 
 	<header class="header">
 		<div class="header_inner d-flex flex-row align-items-center justify-content-start">
-			<div class="logo"><a href="index">Wish</a></div>
+			<div class="logo"><a href="../index">Wish</a></div>
 			<nav class="main_nav">
 				<ul>
-					<li><a href="index">home</a></li>
-					<li><a href="categories">clothes</a></li>
-					<li><a href="categories">accessories</a></li>
-					<li><a href="categories">lingerie</a></li>
-					<li><a href="contact">contact</a></li>
+					<li><a href="../index">home</a></li>
+					<li><a href="clothes">clothes</a></li>
+					<li><a href="accessories">accessories</a></li>
+					<li><a href="lingerie">lingerie</a></li>
+					<li><a href="../contact">contact</a></li>
 				</ul>
 			</nav>
 			<div class="header_content ml-auto">
@@ -40,7 +40,7 @@
 				</div>
 				<div class="shopping">
 					<!-- Cart -->
-					<a href="#">
+					<a href="cart">
 						<div class="cart">
 							<img src="images/shopping-bag.svg" alt="">
 							<div class="cart_num_container">
@@ -87,11 +87,11 @@
 		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="index">home</a></li>
-				<li class="menu_mm"><a href="#">clothes</a></li>
-				<li class="menu_mm"><a href="#">accessories</a></li>
-				<li class="menu_mm"><a href="#">lingerie</a></li>
-				<li class="menu_mm"><a href="contact">contact</a></li>
+				<li class="menu_mm"><a href="../index">home</a></li>
+				<li class="menu_mm"><a href="clothes">clothes</a></li>
+				<li class="menu_mm"><a href="accessories">accessories</a></li>
+				<li class="menu_mm"><a href="lingerie">lingerie</a></li>
+				<li class="menu_mm"><a href="../contact">contact</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -322,11 +322,15 @@
 					<!-- Products -->
 
 					<div class="product_grid">
-
+						<%
+						for (var i=0;i<rows.length; i++)
+						{
+							var oneItem=rows[i];
+						%>
 						<!-- Product -->
 						<div class="product">
-							<div class="product_image"><img src="images/product_1.jpg" alt=""></div>
-							<div class="rating rating_4" data-rating="4">
+							<div class="product_image"><img src="images/<%= oneItem.image1 %>" alt=""></div>
+							<div class="rating rating_<%= oneItem.avg_star %>" data-rating="<%= oneItem.avg_star %>">
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
@@ -335,8 +339,8 @@
 							</div>
 							<div class="product_content clearfix">
 								<div class="product_info">
-									<div class="product_name"><a href="product">Woman's Long Dress</a></div>
-									<div class="product_price">$45.00</div>
+									<div class="product_name"><a href="../product/<%=oneItem.item_id%>"><%= oneItem.product_name %></a></div>
+									<div class="product_price"><%= oneItem.product_price %>원</div>
 								</div>
 								<div class="product_options">
 									<div class="product_buy product_option"><img src="images/shopping-bag-white.svg" alt=""></div>
@@ -344,7 +348,9 @@
 								</div>
 							</div>
 						</div>
-
+						<%
+						}
+						%>
 						<!-- Product -->
 						<div class="product">
 							<div class="product_image"><img src="images/product_2.jpg" alt=""></div>
@@ -675,11 +681,11 @@
 					<div class="footer_logo"><a href="#">Wish</a></div>
 					<nav class="footer_nav">
 						<ul>
-							<li><a href="index">home</a></li>
-							<li><a href="categories">clothes</a></li>
-							<li><a href="categories">accessories</a></li>
-							<li><a href="categories">lingerie</a></li>
-							<li><a href="contact">contact</a></li>
+							<li><a href="../index">home</a></li>
+							<li><a href="clothes">clothes</a></li>
+							<li><a href="accessories">accessories</a></li>
+							<li><a href="lingerie">lingerie</a></li>
+							<li><a href="../contact">contact</a></li>
 						</ul>
 					</nav>
 					<div class="footer_social">
