@@ -137,6 +137,7 @@ passport.use(new LocalStrategy({
     }
 }));
 
+/*
 //로그인 성공 시, 사용자 정보를 Session에 저장
 passport.serializeUser(function (user, done) {
     done(null, user)
@@ -146,22 +147,24 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (user, done) {
     done(null, user);
 });
+*/
 
 //로그인 접근 시 권환 확인 함수
-/*
+
+
 var isAuthenticated = function (req, res, next) {
     if (req.isAuthenticated())
         return next();
     res.redirect('/login');
 };
-*/
+
 
 //로그아웃 함수
-/*
+
 router.get('/logout', function (req, res) {
   req.logout();
+  console.log("로그아웃 되었습니다.");
   res.redirect('/');
 });
-*/
 
 module.exports = router;
