@@ -74,12 +74,11 @@ CREATE TABLE T_BOARD(
 
 
 CREATE TABLE T_REVIEW(
-	review_id INT(11) NOT NULL auto_increment,
-	board_id INT(11) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	item_id INT(11) NOT NULL,
     title VARCHAR(100) NOT NULL,
     contents text,
     score INT(11),
     
-    primary key(review_id),
-    foreign key(board_id) references T_BOARD(board_id)
+    foreign key(item_id) references T_ITEM(item_id)
 )COLLATE = 'utf8_general_ci';
