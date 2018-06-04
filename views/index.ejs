@@ -64,7 +64,11 @@
 						</div>
 					</a>
 					<!-- Avatar -->
+					<% if(!login_check) {%>
 					<a href="/login">
+						<% } else { %>
+					<a href="/">
+						<% } %>
 						<div class="avatar">
 							<img src="images/avatar.svg" alt="">
 						</div>
