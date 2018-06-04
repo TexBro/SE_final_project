@@ -41,6 +41,7 @@ router.get('/productwrite', function(req, res, next) {
 
 router.post('/productwrite', upload.single('userfile'), function(req, res, next) {
     var TITLE_ID = req.body.TITLE_ID;
+    var CATEGORY = req.body.CATEGORY;
     var PRICE = req.body.PRICE;
     var DETAIL = req.body.DETAIL;
     //var IMAGE = req.body.IMAGE;
@@ -48,10 +49,10 @@ router.post('/productwrite', upload.single('userfile'), function(req, res, next)
     if(req.file) {
         IMAGE = req.file.originalname;
     }
-    var datas = [TITLE_ID, PRICE, DETAIL, IMAGE];
+    var datas = [TITLE_ID, CATEGORY, PRICE, DETAIL, IMAGE];
     pool.getConnection(function(err, connection)
     {
-        var sqlForInsertITEM = "insert into T_ITEM(PRODUCT_NAME, PRODUCT_PRICE, DESCRIPTION, IMAGE1) values(?,?,?,?)";
+        var sqlForInsertITEM = "insert into T_ITEM(PRODUCT_NAME, CATEGORY, PRODUCT_PRICE, DESCRIPTION, IMAGE1) values(?,?,?,?,?)";
         connection.query(sqlForInsertITEM,datas, function(err, rows){
             if(err) console.error(err);
             console.log(JSON.stringify(rows));
@@ -117,6 +118,7 @@ router.get('/productupdate/:ITEM_ID', function(req,res,next)
 router.post('/productupdate', upload.single('userfile'),  function(req, res, next)
 {
     var ITEM_ID =req.body.ITEM_ID;
+    var CATEGORY = req.body.CATEGORY;
     var PRODUCT_NAME = req.body.TITLE_ID;
     var PRODUCT_PRICE = req.body.PRICE;
     var DETAIL = req.body.DETAIL;
@@ -126,12 +128,12 @@ router.post('/productupdate', upload.single('userfile'),  function(req, res, nex
         IMAGE = req.file.originalname;
     }
     //console.log("fasddd")
-    var datas = [PRODUCT_NAME, PRODUCT_PRICE, DETAIL, IMAGE, ITEM_ID];
+    var datas = [PRODUCT_NAME, CATEGORY,PRODUCT_PRICE, DETAIL, IMAGE, ITEM_ID];
     console.log(datas)
     var datas2 = [PRODUCT_NAME, ITEM_ID];
     pool.getConnection(function(err, connection)
     {
-        var sql = "update t_item set product_name =?, product_price =?, description = ? , image1 = ? where ITEM_ID=? ";
+        var sql = "update t_item set product_name =?, category = ?, product_price =?, description = ? , image1 = ? where ITEM_ID=? ";
         connection.query(sql,datas, function(err, result) {
             console.log(result);
             if (err) console.error("글 수정 중 에러 발생 : ", err);
