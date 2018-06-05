@@ -60,6 +60,7 @@ CREATE TABLE T_ORDERDETAIL(
     primary key(odd_id),
     foreign key(item_id) references T_ITEM(item_id),
     foreign key(order_id) references T_ORDER(order_id)
+     ON DELETE CASCADE 
 );
 
 

@@ -15,6 +15,8 @@ var productRouter=require('./routes/product');
 var joinForm = require('./routes/joinForm');
 var list =require('./routes/productlist');
 var write = require('./routes/productlist');
+var order = require('./routes/order')
+var orderdetail = require('./routes/orderdetail');
 
 //login 세션 처리부
 var login = require('./routes/login');
@@ -72,6 +74,9 @@ app.use('/index',express.static('public'));
 
 app.use('/product',express.static('public'));
 app.use('/categories',express.static('public'));
+app.use('/order',order);
+app.use('/orderdetail',orderdetail);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));

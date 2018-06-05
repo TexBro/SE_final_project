@@ -62,7 +62,8 @@ passport.use('local-login',new LocalStrategy({
                     } else {
                         console.log('로그인 성공');
                         return done(null, {
-                            user_id: result[0].user_id
+                            user_id: result[0].user_id,
+                            grade:result[0].grade
                         });
                     }
                 }

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Contact</title>
+<title>ORDER History</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Wish shop project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="stylesheets/styles/bootstrap4/bootstrap.min.css">
 <link href="stylesheets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="stylesheets/styles/contact.css">
-<link rel="stylesheet" type="text/css" href="stylesheets/styles/contact_responsive.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/styles/cart.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/styles/cart_responsive.css">
 </head>
 <body>
 
@@ -80,7 +80,7 @@
 		<div class="search">
 			<form action="#">
 				<input type="search" class="search_input menu_mm" required="required">
-				<button type="submit" id="search_button" class="search_button menu_mm"><img class="menu_mm" src="images/magnifying-glass.svg" alt=""></button>
+				<button type="submit" id="search_button_menu" class="search_button menu_mm"><img class="menu_mm" src="images/magnifying-glass.svg" alt=""></button>
 			</form>
 		</div>
 		<nav class="menu_nav">
@@ -89,7 +89,7 @@
 				<li class="menu_mm"><a href="#">clothes</a></li>
 				<li class="menu_mm"><a href="#">accessories</a></li>
 				<li class="menu_mm"><a href="#">lingerie</a></li>
-				<li class="menu_mm"><a href="contact">contact</a></li>
+				<li class="menu_mm"><a href="#">contact</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -97,17 +97,17 @@
 	<!-- Home -->
 
 	<div class="home">
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/contact.jpg" data-speed="0.8"></div>
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/cart.jpg" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<div class="home_container">
 						<div class="home_content">
-							<div class="home_title">Contact</div>
+							<div class="home_title">Order History</div>
 							<div class="breadcrumbs">
 								<ul>
 									<li><a href="index">Home</a></li>
-									<li>Contact</li>
+									<li>Order</li>
 								</ul>
 							</div>
 						</div>
@@ -117,118 +117,76 @@
 		</div>
 	</div>
 
-	<!-- Google Map -->
+	<!-- Cart -->
 
-	<div class="map">
-		<div id="google_map" class="google_map">
-			<div class="map_container">
-				<div id="map"></div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Contact Form -->
-
-	<div class="contact">
+	<div class="cart_container">
 		<div class="container">
 			<div class="row">
 				<div class="col">
-					<div class="review_form_container">
-						<div class="review_form_title">get in touch</div>
-						<div class="review_form_content">
-							<form action="#" id="review_form" class="review_form">
-								<div class="d-flex flex-md-row flex-column align-items-start justify-content-between">
-									<input type="text" class="review_form_input" placeholder="Name" required="required">
-									<input type="email" class="review_form_input" placeholder="E-mail" required="required">
-									<input type="text" class="review_form_input" placeholder="Subject">
-								</div>
-								<textarea class="review_form_text" name="review_form_text" placeholder="Message"></textarea>
-								<button type="submit" class="review_form_button">send message</button>
-							</form>
+					<div class="cart_title">Order list</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="cart_bar d-flex flex-row align-items-center justify-content-start">
+						<div class="cart_bar_title_name">주문번호</div>
+						<div class="cart_bar_title_content ml-auto">
+							<div class="cart_bar_title_content_inner d-flex flex-row align-items-center justify-content-end">
+								<div class="cart_bar_title_price">주문날짜</div>
+								<div class="cart_bar_title_total">주소</div>
+								<div class="cart_bar_title_total">결제금액</div>
+								<div class="cart_bar_title_button"></div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-
-	<!-- Contact Text -->
-
-	<div class="contact_text">
-		<div class="container">
 			<div class="row">
-
-				<!-- Contact Info -->
-				<div class="col-lg-5">
-
-					<div class="contact_info">
-						<div class="contact_title">contact info</div>
-						<div class="contact_info_content">
-							<ul>
-								<li>
-									<div class="contact_info_icon"><img src="images/contact_info_1.png" alt=""></div>
-									<div class="contact_info_text">서울시 노원구 광운로 20 (월계동 447-1) 광운대학교(01897)</div>
-								</li>
-								<li>
-									<div class="contact_info_icon"><img src="images/contact_info_2.png" alt=""></div>
-									<div class="contact_info_text">SofwareEngeeniring@kw.ac.kr</div>
-								</li>
-								<li>
-									<div class="contact_info_icon"><img src="images/contact_info_3.png" alt=""></div>
-									<div class="contact_info_text">02.940.5114</div>
-								</li>
-							</ul>
-						</div>
-						<div class="contact_info_social">
-							<ul>
-								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
+				<div class="col">
+					<div class="cart_products">
+						<ul>
+							<%
+							for(var i = 0 ; i < rows.length; i++)
+							{
+								var oneItem = rows[i];
+							%>
+							<li class=" cart_product d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
+								<!-- Product Image -->
+								<div class="cart_product_image"><img src="이미지(였던 것)" alt=""></div>
+								<!-- Product Name -->
+								<div class="cart_product_name"><a href="/orderdetail/<%=oneItem.order_id%>"><%=oneItem.order_id%></a></div>
+								<div class="cart_product_info ml-auto">
+									<div class="cart_product_info_inner d-flex flex-row align-items-center justify-content-md-end justify-content-start">
+										<!-- Product Price -->
+										<div class="cart_product_price"><%=oneItem.order_date%></div>
+										<!-- Product Quantity -->
+										<div class="cart_product_total"><%=oneItem.address%></div>
+										<!-- Products Total Price -->
+										<div class="cart_product_total"><%=oneItem.total_price%>원</div>
+										<!-- Product Cart Trash Button -->
+										<form action="/orderdetail/cancelOrder/<%=oneItem.odd_id%>" method="post">
+										<div class="cart_product_button">
+											<button type ='submit' class="cart_product_remove"><img src="images/trash.png" alt=""></button>
+										</div>
+										</form>
+									</div>
+								</div>
+							</li>
+							<%
+							}
+							%>
+						</ul>
 					</div>
 				</div>
-
-				<!-- FAQ -->
-				<div class="col-lg-7">
-					<div class="faq">
-						<div class="contact_title">faq</div>
-						<div class="faq_content">
-
-							<!-- Accordions -->
-							<div class="accordions">
-
-								<div class="accordion_container">
-									<div class="accordion d-flex flex-row align-items-center"><div>배송기간이 어떻게 되나요?</div></div>
-									<div class="accordion_panel">
-										<p>WISH 상품의 경우 월~금 오후 2시이전 결제완료시 당일 즉시 출고 처리되며 배송사 사정에따라 1~2일 정도 배송기간이 소요될 수 있습니다. (주말/공휴일제외)
-											주문 후 제작상품, 브랜드입점 상품의 경우 별도로 공지된 배송기간을 꼭 확인 부탁드립니다.</p>
-									</div>
-								</div>
-
-								<div class="accordion_container">
-									<div class="accordion d-flex flex-row align-items-center"><div>배송비는 얼마인가요?</div></div>
-									<div class="accordion_panel">
-										<p>WISH 기본 배송비는 2500원이며, 5만원 이상 구매시 무료배송적용됩니다.(실결제금액기준)
-											브랜드입점 상품의 경우 별도로 공지된 배송비를 꼭 확인 부탁드립니다.</p>
-									</div>
-								</div>
-
-								<div class="accordion_container">
-									<div class="accordion d-flex flex-row align-items-center active"><div>묶음 배송도 가능한가요?</div></div>
-									<div class="accordion_panel">
-										<p>여러 상품 주문시 장바구니를 이용하여 상품 담은 후 한번에 결제해주시면 한주문건으로 인식하여 출고되며 주문번호가 다를 경우 고객센터로 요청하시면 묶음배송처리 후 배송차액금은 환불처리해드립니다.
-											※ 공급업체가 다른 브랜드상품일 경우 묶음배송은 불가합니다.</p>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="cart_control_bar d-flex flex-md-row flex-column align-items-start justify-content-start">
+						<button class="button_update cart_button_2 ml-md-auto" onclick = "location.href = '/' ">return to home</button>
 					</div>
 				</div>
+			</div>
+			<div class="row cart_extra">
 			</div>
 		</div>
 	</div>
@@ -237,8 +195,55 @@
 
 	<div class="newsletter">
 		<div class="newsletter_content">
-			<div class="newsletter_image" style="background-image:url(images/newsletter.jpg)"></div>
+			<div class="newsletter_image parallax-window" data-parallax="scroll" data-image-src="images/cart_nl.jpg" data-speed="0.8"></div>
 			<div class="container">
+				<div class="row options">
+
+					<!-- Options Item -->
+					<div class="col-lg-3">
+						<div class="options_item d-flex flex-row align-items-center justify-content-start">
+							<div class="option_image"><img src="images/option_1.png" alt=""></div>
+							<div class="option_content">
+								<div class="option_title">30 Days Returns</div>
+								<div class="option_subtitle">No questions asked</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Options Item -->
+					<div class="col-lg-3">
+						<div class="options_item d-flex flex-row align-items-center justify-content-start">
+							<div class="option_image"><img src="images/option_2.png" alt=""></div>
+							<div class="option_content">
+								<div class="option_title">Free Delivery</div>
+								<div class="option_subtitle">On all orders</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Options Item -->
+					<div class="col-lg-3">
+						<div class="options_item d-flex flex-row align-items-center justify-content-start">
+							<div class="option_image"><img src="images/option_3.png" alt=""></div>
+							<div class="option_content">
+								<div class="option_title">Secure Payments</div>
+								<div class="option_subtitle">No need to worry</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Options Item -->
+					<div class="col-lg-3">
+						<div class="options_item d-flex flex-row align-items-center justify-content-start">
+							<div class="option_image"><img src="images/option_4.png" alt=""></div>
+							<div class="option_content">
+								<div class="option_title">24/7 Support</div>
+								<div class="option_subtitle">Just call us</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
 				<div class="row newsletter_row">
 					<div class="col">
 						<div class="section_title_container text-center">
@@ -255,7 +260,7 @@
 								<button type="submit" class="newsletter_button">subscribe</button>
 							</form>
 						</div>
-						<div class="newsletter_text">Integer ut imperdiet erat. Quisque ultricies lectus tellus, eu tristique magna pharetra nec. Fusce vel lorem libero. Integer ex mi, facilisis sed nisi ut, vestib ulum ultrices nulla. Aliquam egestas tempor leo.</div>
+						<div class="newsletter_text"></div>
 					</div>
 				</div>
 			</div>
@@ -271,7 +276,7 @@
 					<div class="footer_logo"><a href="index">Wish</a></div>
 					<nav class="footer_nav">
 						<ul>
-							<li><a href="index.html">home</a></li>
+							<li><a href="index">home</a></li>
 							<li><a href="categories">clothes</a></li>
 							<li><a href="categories">accessories</a></li>
 							<li><a href="categories">lingerie</a></li>
@@ -297,11 +302,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </div>
 
 <script src="javascripts/jquery-3.2.1.min.js"></script>
-<script src="stylesheets/styles/bootstrap4/popper.js"></script>
+<script src="stylesheets/tyles/bootstrap4/popper.js"></script>
 <script src="stylesheets/styles/bootstrap4/bootstrap.min.js"></script>
 <script src="stylesheets/plugins/easing/easing.js"></script>
 <script src="stylesheets/plugins/parallax-js-master/parallax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
-<script src="javascripts/contact_custom.js"></script>
+<script src="javascripts/cart_custom.js"></script>
 </body>
 </html>
