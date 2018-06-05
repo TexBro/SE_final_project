@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Wish</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Wish shop project">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="/stylesheets/styles/bootstrap4/bootstrap.min.css">
-<link href="/stylesheets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="/stylesheets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="/stylesheets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-<link rel="stylesheet" type="text/css" href="/stylesheets/plugins/OwlCarousel2-2.2.1/animate.css">
-<link href="/stylesheets/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="/stylesheets/styles/main_styles.css">
-<link rel="stylesheet" type="text/css" href="/stylesheets/styles/responsive.css">
+	<title>Wish</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Wish shop project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/styles/bootstrap4/bootstrap.min.css">
+	<link href="/stylesheets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/plugins/OwlCarousel2-2.2.1/animate.css">
+	<link href="/stylesheets/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/styles/main_styles.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/styles/responsive.css">
 </head>
 <body>
 
@@ -53,22 +53,28 @@
 						</div>
 					</a>
 					<!-- Star -->
-					<a href="#">
-						<div class="star">
-							<img src="images/star.svg" alt="">
-							<div class="star_num_container">
-								<div class="star_num_inner">
-									<div class="star_num">0</div>
-								</div>
+					<% if(!login_check) {%>
+					<a href="/login">
+					<% } else if(grade == "seller") {%>
+					<a href="/productlist">
+						<% } else {%>
+						<a href = "/order">
+							<% } %>
+							<div class="star">
+								<img src="images/star.svg" alt="">
 							</div>
-						</div>
-					</a>
+						</a>
+
 					<!-- Avatar -->
-					<a href="#">
-						<div class="avatar">
-							<img src="images/avatar.svg" alt="">
-						</div>
-					</a>
+					<% if(!login_check) {%>
+					<a href="/login">
+						<% } else { %>
+						<a href="/order">
+							<% } %>
+							<div class="avatar">
+								<img src="images/avatar.svg" alt="">
+							</div>
+						</a>
 				</div>
 			</div>
 
@@ -528,8 +534,8 @@
 						</ul>
 					</div>
 					<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
 				</div>
 			</div>
 		</div>

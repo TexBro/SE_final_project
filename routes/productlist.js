@@ -44,15 +44,16 @@ router.post('/productwrite', upload.single('userfile'), function(req, res, next)
     var CATEGORY = req.body.CATEGORY;
     var PRICE = req.body.PRICE;
     var DETAIL = req.body.DETAIL;
-    //var IMAGE = req.body.IMAGE;
+    var ID= req.user.user_id;
+
     var IMAGE = '';
     if(req.file) {
         IMAGE = req.file.originalname;
     }
-    var datas = [TITLE_ID, CATEGORY, PRICE, DETAIL, IMAGE];
+    var datas = [TITLE_ID, CATEGORY, ID, PRICE, DETAIL, IMAGE];
     pool.getConnection(function(err, connection)
     {
-        var sqlForInsertITEM = "insert into T_ITEM(PRODUCT_NAME, CATEGORY, PRODUCT_PRICE, DESCRIPTION, IMAGE1) values(?,?,?,?,?)";
+        var sqlForInsertITEM = "insert into T_ITEM(PRODUCT_NAME, CATEGORY, USER_ID, PRODUCT_PRICE, DESCRIPTION, IMAGE1) values(?,?,?,?,?,?)";
         connection.query(sqlForInsertITEM,datas, function(err, rows){
             if(err) console.error(err);
             console.log(JSON.stringify(rows));
@@ -122,18 +123,19 @@ router.post('/productupdate', upload.single('userfile'),  function(req, res, nex
     var PRODUCT_NAME = req.body.TITLE_ID;
     var PRODUCT_PRICE = req.body.PRICE;
     var DETAIL = req.body.DETAIL;
+    var ID = req.user.user_id;
     //console.log("fasddd")
     var IMAGE = '';
     if(req.file) {
         IMAGE = req.file.originalname;
     }
     //console.log("fasddd")
-    var datas = [PRODUCT_NAME, CATEGORY,PRODUCT_PRICE, DETAIL, IMAGE, ITEM_ID];
+    var datas = [PRODUCT_NAME, CATEGORY,ID, PRODUCT_PRICE, DETAIL, IMAGE, ITEM_ID];
     console.log(datas)
     var datas2 = [PRODUCT_NAME, ITEM_ID];
     pool.getConnection(function(err, connection)
     {
-        var sql = "update t_item set product_name =?, category = ?, product_price =?, description = ? , image1 = ? where ITEM_ID=? ";
+        var sql = "update t_item set product_name =?, category = ?, USER_ID = ?, product_price =?, description = ? , image1 = ? where ITEM_ID=? ";
         connection.query(sql,datas, function(err, result) {
             console.log(result);
             if (err) console.error("글 수정 중 에러 발생 : ", err);
