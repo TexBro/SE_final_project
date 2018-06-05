@@ -23,9 +23,9 @@
 			<nav class="main_nav">
 				<ul>
 					<li><a href="index">home</a></li>
-					<li><a href="categories">clothes</a></li>
-					<li><a href="categories">accessories</a></li>
-					<li><a href="categories">lingerie</a></li>
+					<li><a href="categories/clothes">clothes</a></li>
+					<li><a href="categories/accessories">accessories</a></li>
+					<li><a href="categories/lingerie">lingerie</a></li>
 					<li><a href="contact">contact</a></li>
 				</ul>
 			</nav>
@@ -54,7 +54,7 @@
 							<img src="images/star.svg" alt="">
 							<div class="star_num_container">
 								<div class="star_num_inner">
-									<div class="star_num">0</div>
+									<div class="star_num">0 </div>
 								</div>
 							</div>
 						</div>
@@ -86,10 +86,10 @@
 		<nav class="menu_nav">
 			<ul class="menu_mm">
 				<li class="menu_mm"><a href="index">home</a></li>
-				<li class="menu_mm"><a href="#">clothes</a></li>
-				<li class="menu_mm"><a href="#">accessories</a></li>
-				<li class="menu_mm"><a href="#">lingerie</a></li>
-				<li class="menu_mm"><a href="#">contact</a></li>
+				<li class="menu_mm"><a href="categories/clothes">clothes</a></li>
+				<li class="menu_mm"><a href="categories/accessories">accessories</a></li>
+				<li class="menu_mm"><a href="categories/lingerie">lingerie</a></li>
+				<li class="menu_mm"><a href="contact">contact</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -138,11 +138,11 @@
 				<!-- Product Image -->
 				<div class="col-lg-7">
 					<div class="product_image">
-						<div class="product_image_large"><img src="images/product_image_1.jpg" alt=""></div>
+						<div class="product_image_large"><img src="images/<%= rows[0].image1 %>" alt=""></div>
 						<div class="product_image_thumbnails d-flex flex-row align-items-start justify-content-start">
-							<div class="product_image_thumbnail" style="background-image:url(images/product_image_1.jpg)" data-image="images/product_image_1.jpg"></div>
-							<div class="product_image_thumbnail" style="background-image:url(images/product_image_2.jpg)" data-image="images/product_image_2.jpg"></div>
-							<div class="product_image_thumbnail" style="background-image:url(images/product_image_4.jpg)" data-image="images/product_image_4.jpg"></div>
+							<div class="product_image_thumbnail" style="background-image:url('images/<%=rows[0].image1%>')" data-image='images/<%=rows[0].image1%>'></div>
+							<div class="product_image_thumbnail" style="background-image:url('images/<%=rows[0].image2%>')" data-image='images/<%=rows[0].image2%>'></div>
+							<div class="product_image_thumbnail" style="background-image:url('images/<%=rows[0].image3%>')" data-image='images/<%=rows[0].image3%>'></div>
 						</div>
 					</div>
 				</div>
@@ -150,9 +150,9 @@
 				<!-- Product Content -->
 				<div class="col-lg-5">
 					<div class="product_content">
-						<div class="product_name">2 Piece Swimsuit</div>
-						<div class="product_price">$35.00</div>
-						<div class="rating rating_4" data-rating="4">
+						<div class="product_name"><%=rows[0].product_name%></div>
+						<div class="product_price"><%=rows[0].product_price%>원</div>
+						<div class="rating rating_<%= rows[0].avg_star %>" data-rating="<%= rows[0].avg_star %>">
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
 							<i class="fa fa-star"></i>
@@ -165,7 +165,7 @@
 							<span>in stock</span>
 						</div>
 						<div class="product_text">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis quam ipsum. Pellentesque consequat tellus non tortor tempus, id egestas elit iaculis. Proin eu dui porta, pretium metus vitae, pharetra odio. Sed ac mi commodo, pellentesque erat eget, accumsan justo. Etiam sed placerat felis. Proin non rutrum ligula.</p>
+							<p><%=rows[0].description%></p>
 						</div>
 						<!-- Product Quantity -->
 						<div class="product_quantity_container">
@@ -179,6 +179,7 @@
 							</div>
 						</div>
 						<!-- Product Size -->
+						
 						<div class="product_size_container">
 							<span>Size</span>
 							<div class="product_size">
@@ -205,7 +206,7 @@
 									</li>
 								</ul>
 							</div>
-							<div class="button cart_button"><a href="#">add to cart</a></div>
+							<div class="button cart_button"><a href="../cart/<%=rows[0].item_id%>">add to cart</a></div>
 						</div>
 					</div>
 				</div>
@@ -220,12 +221,17 @@
 						<div class="reviews_container">
 							<ul>
 								<!-- Review -->
+								<%
+								for (var i=0; i<results.length;i++)
+								{
+									var oneItem=results[i];
+								%>
+
 								<li class=" review clearfix">
-									<div class="review_image"><img src="images/review_1.jpg" alt=""></div>
+									<div class="review_image"><img src="images/review.jpg" alt=""></div>
 									<div class="review_content">
-										<div class="review_name"><a href="#">Maria Smith</a></div>
-										<div class="review_date">Nov 29, 2017</div>
-										<div class="rating rating_4 review_rating" data-rating="4">
+										<div class="review_name"><a href="#"><%= oneItem.title %></a></div>
+										<div class="rating rating_<%=oneItem.score%>" data-rating="<%= oneItem.score %>">
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
@@ -233,28 +239,14 @@
 											<i class="fa fa-star"></i>
 										</div>
 										<div class="review_text">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis quam ipsum. Pellentesque consequat tellus non tortor tempus, id egestas elit iaculis. Proin eu dui porta, pretium metus vitae, pharetra odio. Sed ac mi commodo, pellentesque erat eget, accumsan justo. Etiam sed placerat felis. Proin non rutrum ligula. </p>
+											<p><%=oneItem.contents%></p>
 										</div>
 									</div>
 								</li>
+								<%
+								}
+								%>
 								<!-- Review -->
-								<li class=" review clearfix">
-									<div class="review_image"><img src="images/review_2.jpg" alt=""></div>
-									<div class="review_content">
-										<div class="review_name"><a href="#">Maria Smith</a></div>
-										<div class="review_date">Nov 29, 2017</div>
-										<div class="rating rating_4 review_rating" data-rating="4">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="review_text">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis quam ipsum. Pellentesque consequat tellus non tortor tempus, id egestas elit iaculis. Proin eu dui porta, pretium metus vitae, pharetra odio. Sed ac mi commodo, pellentesque erat eget, accumsan justo. Etiam sed placerat felis. Proin non rutrum ligula. </p>
-										</div>
-									</div>
-								</li>
 							</ul>
 						</div>
 					</div>
@@ -262,17 +254,17 @@
 			</div>
 
 			<!-- Leave a Review -->
-
 			<div class="row">
 				<div class="col">
 					<div class="review_form_container">
 						<div class="review_form_title">leave a review</div>
 						<div class="review_form_content">
-							<form action="#" id="review_form" class="review_form">
+							<form action="review_form" id="review_form" class="review_form" method=post >
 								<div class="d-flex flex-md-row flex-column align-items-start justify-content-between">
-									<input type="text" class="review_form_input" placeholder="Name" required="required">
-									<input type="email" class="review_form_input" placeholder="E-mail" required="required">
-									<input type="text" class="review_form_input" placeholder="Subject">
+									<input type="text" name = "user_name" class="review_form_input" placeholder="Name" required="required">
+									<input type="email" name = "user_email" class="review_form_input" placeholder="E-mail" required="required">
+									<input type="text" name = "user_star" class="review_form_input" placeholder="star 1~5">
+									<input type="hidden" name="id" value="<%=rows[0].item_id %>">
 								</div>
 								<textarea class="review_form_text" name="review_form_text" placeholder="Message"></textarea>
 								<button type="submit" class="review_form_button">leave a review</button>
@@ -323,9 +315,9 @@
 					<nav class="footer_nav">
 						<ul>
 							<li><a href="index">home</a></li>
-							<li><a href="categories">clothes</a></li>
-							<li><a href="categories">accessories</a></li>
-							<li><a href="categories">lingerie</a></li>
+							<li><a href="categories/clothes">clothes</a></li>
+							<li><a href="categories/accessories">accessories</a></li>
+							<li><a href="categories/lingerie">lingerie</a></li>
 							<li><a href="contact">contact</a></li>
 						</ul>
 					</nav>

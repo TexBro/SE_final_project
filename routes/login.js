@@ -62,7 +62,8 @@ passport.use('local-login',new LocalStrategy({
                     } else {
                         console.log('로그인 성공');
                         return done(null, {
-                            user_id: result[0].user_id
+                            user_id: result[0].user_id,
+                            grade:result[0].grade
                         });
                     }
                 }
@@ -91,51 +92,6 @@ function isLoggedIn(req,res,next){
 }
 
 
-router.post('/', function (req, res, next) {
-    var
-        user_email = req.body.email,
-        password =   req.body.pass;
-
-    console.log(req.body);
-    pool.getConnection(function(err,connection){
-        connection.query('select *from `t_user` where `email` = ?', user_email, function (err, result) {
-            console.log(result);
-
-            if (err) {
-                console.log(err);
-            } else {
-                if (result.length === 0) {
-                    res.json({success: false, msg: '해당 유저가 존재하지 않습니다.'})
-                } else {
-                    console.log(password);
-                    console.log(result[0].pass);
-                    //if (!bcrypt.compareSync(password, result[0].passwd)) { //해싱 비교 보류
-                    if(password!=result[0].passwd){
-                        res.json({success: false, msg: '비밀번호가 일치하지 않습니다.'})
-                    } else {
-                        console.log("로그인 성공!");
-                        res.redirect('/');
-                    }
-                }
-            }
-        });
-    });
-});
-
-
-passport.use(new LocalStrategy({
-    usernameField: 'username',
-    passwordField: 'password',
-    passReqToCallback: true //인증을 수행하는 인증 함수로 HTTP request를 그대로  전달할지 여부를 결정한다
-}, function (req, username, password, done) {
-    if(username === 'user001' && password === 'password'){
-        return done(null, {
-            'user_id': username,
-        });
-    }else{
-        return done(false, null)
-    }
-}));
 //로그인 접근 시 권환 확인 함수
 
 var isAuthenticated = function (req, res, next) {
