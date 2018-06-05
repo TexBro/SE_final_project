@@ -16,14 +16,14 @@ router.get('/:order_id', function(req, res, next) {
     var order_id = req.params.order_id;
 
     pool.getConnection(function (err, connection){
-        var sqlForSelectITEM = "SELECT t_orderdetail.order_id, 5_orderdetail.odd_id, t_orderdetail.item_quantity, t_item.*\n" +
+        var sqlForSelectITEM = "SELECT t_orderdetail.order_id, t_orderdetail.odd_id, t_orderdetail.item_quantity, t_item.*\n" +
             "from t_orderdetail \n" +
             "INNER JOIN t_item \n" +
             "ON t_orderdetail.item_id = t_item.item_id AND order_id = ?;";
 
         connection.query(sqlForSelectITEM,order_id, function(err, rows) {
-            console.log("SUPER HERO LANDING!");
-            console.log("odd result...."); console.log(rows);
+            console.log(rows);
+            //console.log(rows.length);
             res.render('orderdetail', {title: 'ORDER DETAIL', rows: rows});
             connection.release();
         });//end of query

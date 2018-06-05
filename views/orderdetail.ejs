@@ -146,13 +146,13 @@
 					<div class="cart_products">
 						<ul>
 							<%
-							for(var i = 0 ; i < rows.length; i++)
+							for(var i = 0 ; i < rows.length ; i++)
 							{
 								var oneItem = rows[i];
 							%>
 							<li class=" cart_product d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
 								<!-- Product Image -->
-								<div class="cart_product_image"><img src="이미지(였던 것)" alt=""></div>
+								<div class="cart_product_image"><img src="<%=oneItem.image1%>" alt=""></div>
 								<!-- Product Name -->
 								<div class="cart_product_name"><a href="/product"><%=oneItem.order_id%></a></div>
 								<div class="cart_product_info ml-auto">
