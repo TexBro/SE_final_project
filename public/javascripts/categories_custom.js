@@ -18,7 +18,7 @@ $(document).ready(function()
 {
 	"use strict";
 
-	/* 
+	/*
 
 	1. Vars and Inits
 
@@ -46,7 +46,7 @@ $(document).ready(function()
 	initPriceSlider();
 	initProductsHeight();
 
-	/* 
+	/*
 
 	2. Set Header
 
@@ -64,7 +64,7 @@ $(document).ready(function()
 		}
 	}
 
-	/* 
+	/*
 
 	3. Init Menu
 
@@ -116,7 +116,7 @@ $(document).ready(function()
 		menuActive = false;
 	}
 
-	/* 
+	/*
 
 	4. Init Isotope
 
@@ -136,7 +136,7 @@ $(document).ready(function()
 	            {
 	            	price: function(itemElement)
 	            	{
-	            		var priceEle = $(itemElement).find('.product_price').text().replace( '$', '' );
+	            		var priceEle = $(itemElement).find('.product_price').text().replace( '', '원' );
 	            		return parseFloat(priceEle);
 	            	},
 	            	name: '.product_name',
@@ -154,7 +154,7 @@ $(document).ready(function()
 	                queue: false
 	            }
 	        });
-	        
+
 	        // Sort based on the value from the sorting_type dropdown
 	        sortingButtons.each(function()
 	        {
@@ -180,7 +180,7 @@ $(document).ready(function()
 		        		var option = '{ "sortBy": "original-order" }';
 		        		option = JSON.parse(option);
 						grid.isotope(option);
-	        		}	
+	        		}
 	        	});
 	        }
 
@@ -214,11 +214,11 @@ $(document).ready(function()
 	        		$('.num_sorting_text').text($(this).text());
     				$('.product_grid').isotope({filter: numFilter });
 	        	});
-	        });	
+	        });
 		}
 	}
 
-	/* 
+	/*
 
 	5. Init Price Slider
 
@@ -231,16 +231,16 @@ $(document).ready(function()
     		$("#slider-range").slider(
 			{
 				range: true,
-				min: 20,
-				max: 199,
-				values: [ 20, 199 ],
+				min: 1000,
+				max: 200000,
+				values: [ 1000, 200000 ],
 				slide: function( event, ui )
 				{
-					$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+					$( "#amount" ).val( ui.values[ 0 ] + " 원 ~ " +  ui.values[ 1 ]+ " 원" );
 				}
 			});
-				
-			$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+			$( "#amount" ).val(  $( "#slider-range" ).slider( "values", 0 ) +" 원 ~ "+  $( "#slider-range" ).slider( "values", 1 )+" 원" );
 			$('.filter_price').on('mouseup', function()
 			{
 				$('.product_grid').isotope({
@@ -260,10 +260,10 @@ $(document).ready(function()
 		            }
 		        });
 			});
-    	}	
+    	}
     }
 
-    /* 
+    /*
 
 	6. Init Products Height
 

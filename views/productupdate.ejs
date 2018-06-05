@@ -1,38 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src = "/javascripts/jquery-3.2.1.min.js"></script>
-	<title><%= title %></title>
-	<link rel = 'stylesheet' href = '/stylesheets/bootstrap.min.css' />
+   <script src = "/javascripts/jquery-3.2.1.min.js"></script>
+   <link rel = 'stylesheet' href = '/stylesheets/bootstrap.min.css' />
+
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   <title>Product Modification</title>
+
+   <!-- Bootstrap -->
+   <link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+   <!-- font awesome -->
+   <link rel="stylesheet" href="../stylesheets/styles/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+   <!-- Custom style -->
+   <link rel="stylesheet" href="../stylesheets/style.css" media="screen" title="no title" charset="utf-8">
+   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
 <body>
-<h1><%= title %></h1>
-
 <form action = "/productlist/productupdate" method = "post" enctype = "multipart/form-data">
-	<table border = "1">
-			<input type = "hidden" name = "ITEM_ID" value = "<%= row.ITEM_ID %>"/>
-		<tr>
-			<td>TITLE</td>
-			<td><input type = "text" name = "TITLE_ID" id = "TITLE_ID" required/></td>
-		</tr>
-		<tr>
-			<td>PRICE</td>
-			<td><input type = "text" name = "PRICE" id = "PRICE" required/></td>
-		</tr>
-		<tr>
-			<td>DETAIL</td>
-			<td><textarea name = "DETAIL" id = "DETAIL" cols = "30" rows = "10" required></textarea></td>
-		</tr>
-		<tr>
-			<td>IMAGE</td>
-			<td><input type = "file" name = "userfile" /></td>
-		</tr>
-		<tr>
-			<td colspan = "2">
-				<button type = "submit">제품수정</button>
-			</td>
-		</tr>
-	</table>
+   <table border = "1">
+         <input type = "hidden" name = "ITEM_ID" value = "<%= row.ITEM_ID %>"/>
+      <article class="container">
+         <div>
+            <h1>상품수정</h1>
+         </div>
+         <div class="col-md-6 col-md-offset-3">
+            <form role="form">
+               <div class="form-group">
+                  <label for="TITLE_ID">TITLE</label>
+                  <input type="text" class="form-control" name = "TITLE_ID" id="TITLE_ID" placeholder="TITLE">
+               </div>
+               <div class="form-group">
+                        <label for="CATEGORY">CATEGORY</label>
+                        <select class="form-control" name = "CATEGORY" id="CATEGORY" placeholder="CATEGORY">
+                            <option value="clothes">clothes</option>
+                            <option value="accessories">accessories</option>
+                            <option value="lingerie">lingerie</option>
+                        </select>
+               </div>
+               <div class="form-group">
+                  <label for="PRICE">PRICE</label>
+                  <input type="int" class="form-control" name = "PRICE" id="PRICE" placeholder="PRICE">
+               </div>
+               <div class="form-group">
+                  <label for="DETAIL">DETAIL</label>
+                  <input type="text" class="form-control" name = "DETAIL" id="DETAIL" placeholder="DETAIL">
+               </div>
+               <div class="form-group">
+                  <label for="userfile">IMAGE</label>
+                  <input type="file" class="form-control" name = "userfile" id="userfile" placeholder="IMAGE">
+               </div>
+               <div class="form-group text-center">
+                  <button type="submit" class="btn btn-info">상품수정<i class="fa fa-check spaceLeft"></i></button>
+               </div>
+            </form>
+         </div>
+      </article>
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="../javascripts/bootstrap.min.js"></script>
+   </table>
 </form>
 </body>
 </html>

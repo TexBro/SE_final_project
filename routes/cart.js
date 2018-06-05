@@ -29,6 +29,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:cart_id', function(req, res, next) {
+  if (!req.user)
+  {
+    res.send('<script type="text/javascript">alert("로그인 후 이용해주세요");</script>');
+  }
   var id=req.params.cart_id;
   console.log(id);
   pool.getConnection(function(err,connection){
@@ -44,6 +48,10 @@ router.get('/:cart_id', function(req, res, next) {
 });
 
 router.post('/',function(req,res,next){
+  if (!req.user)
+  {
+    res.send('<script type="text/javascript">alert("로그인 후 이용해주세요");</script>');
+  }
   var id=req.query.id;
   var price = req.query.price;
   var data = [id,req.user.user_id,1,price]
@@ -68,6 +76,10 @@ router.post('/',function(req,res,next){
 });
 
 router.post('/:total_price', function(req, res, next) {
+  if (!req.user)
+  {
+    res.send('<script type="text/javascript">alert("로그인 후 이용해주세요");</script>');
+  }
   var total_price = req.params.total_price;
   var name = req.body.user_name;
   var address = req.body.checkout_comment;

@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset = "UTF-8">
-	<meta name = "viewport" content = "width=device-width, initial-scale = 1">
-	<title>상품관리</title>
-	<link rel = "stylesheet" href = "stylesheets/bootstrap.min.css">
+
+   <meta charset = "UTF-8">
+   <meta name = "viewport" content = "width=device-width, initial-scale = 1">
+   <title>Product List</title>
+   <link rel = "stylesheet" href = "stylesheets/bootstrap.min.css">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="stylesheets/font-awesome.min.css" media="screen" title="no title" charset="utf-8">
+    <!-- Custom style -->
+    <link rel="stylesheet" href="stylesheets/style.css" media="screen" title="no title" charset="utf-8">
+
 </head>
 <body>
 <div class = "container">
-	<table class = "table table-striped">
-		<thead>
-		<tr>
-			<th>BOARD_ID</th>
-			<th>ITEM_ID</th>
-			<th>TITLE</th>
-			<th>UPDATE</th>
-			<th>DELETE</th>
-		</tr>
-		</thead>
-		<tbody>
-		<%
-		for(var i = 0 ; i < rows.length; i++)
-		{
-			var oneItem = rows[i];
-		%>
-		<tr>
-			<td><%=oneItem.BOARD_ID%></td>
-			<td><%=oneItem.ITEM_ID%></td>
-			<td><%=oneItem.TITLE%></td>
-			<td><a href = "/productlist/productupdate/<%=oneItem.ITEM_ID%>">UPDATE</a></td>
-			<td><a href = "/productlist/productdelete/<%=oneItem.ITEM_ID%>">DELETE</a></td>
-		</tr>
-		<%
-		}
-		%>
-		</tbody>
-	</table>
-	<hr/>
-	<a class = "btn btn-default pull-right" href = "/productlist/productwrite">글쓰기</a>
-	<div  class = "text-center">
-		<ul class = "pagination">
-			<li><a href = '#'>1</a></li>
-			<li><a href = '#'>2</a></li>
-			<li><a href = '#'>3</a></li>
-			<li><a href = '#'>4</a></li>
-			<li><a href = '#'>5</a></li>
-		</ul>
-	</div>
+   <table class = "table table-striped">
+      <div>
+         <h1>상품목록</h1>
+      </div>
+      <thead>
+      <tr>
+         <th>BOARD_ID</th>
+         <th>ITEM_ID</th>
+         <th>TITLE</th>
+         <th>UPDATE</th>
+         <th>DELETE</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%
+      for(var i = 0 ; i < rows.length; i++)
+      {
+         var oneItem = rows[i];
+      %>
+      <tr>
+         <td><%=oneItem.BOARD_ID%></td>
+         <td><%=oneItem.ITEM_ID%></td>
+         <td><a href = "/product/<%=oneItem.ITEM_ID%>"><%=oneItem.TITLE%></a></td>
+         <td><a href = "/productlist/productupdate/<%=oneItem.ITEM_ID%>">UPDATE</a></td>
+         <td><a href = "/productlist/productdelete/<%=oneItem.ITEM_ID%>">DELETE</a></td>
+      </tr>
+      <%
+      }
+      %>
+      </tbody>
+   </table>
+   <hr/>
+   <a class = "btn btn-default pull-right" href = "/productlist/productwrite">글쓰기</a>
+   <div  class = "text-center">
+      <ul class = "pagination">
+         <li><a href = '#'>1</a></li>
+         <li><a href = '#'>2</a></li>
+         <li><a href = '#'>3</a></li>
+         <li><a href = '#'>4</a></li>
+         <li><a href = '#'>5</a></li>
+      </ul>
+   </div>
 </div>
 
 <script src = "javascripts/jquery-3.2.1.min.js"></script>

@@ -7,7 +7,7 @@ var pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     database: 'sw_proj3',
-    password: 'hyjuki12!'
+    password: 'kim905'
 });
 /* GET home page. */
 router.get('/', function(req, res, next) {
