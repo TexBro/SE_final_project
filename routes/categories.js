@@ -8,6 +8,19 @@ var pool = mysql.createPool({
     database: 'sw_proj3',
     password: 'hyjuki12!'
 });
+router.get('/',function(req, res, next){
+  //res.render('../cart')
+  pool.getConnection(function (err, connection){
+      var sqlForSelectList = "SELECT item_id, user_id, product_name, product_price, category,discount_rate,image1,image2,image3,description,avg_star FROM t_item";
+      connection.query(sqlForSelectList, function(err, rows) {
+          if(err) console.error(err);
+          res.render('categories', {title: 'clothes', rows:rows});
+          connection.release();
+      });
+  });
+});
+
+
 router.get('/product/:id', function(req, res, next){
   var id=req.params.id;
   console.log('product/'+id);
@@ -31,6 +44,8 @@ router.get('/:catego',function(req,res,next){
   });
 });
 module.exports = router;
+module.exports = router;
+
 /*
 router.get('/',function(req,res,next){
   //res.render('../cart')

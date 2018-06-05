@@ -10,5 +10,4 @@ router.get('/', function(req, res, next) {
   }
   res.render('index', { login_check:user_id });
 });
-
 module.exports = router;

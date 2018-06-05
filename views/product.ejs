@@ -168,6 +168,8 @@
 							<p><%=rows[0].description%></p>
 						</div>
 						<!-- Product Quantity -->
+						<form id="cloth_size" class="" action="../cart/?id=<%=rows[0].item_id%>&price=<%=rows[0].product_price%>" method="post">
+						<div>
 						<div class="product_quantity_container">
 							<span>Quantity</span>
 							<div class="product_quantity clearfix">
@@ -179,35 +181,36 @@
 							</div>
 						</div>
 						<!-- Product Size -->
-						
 						<div class="product_size_container">
 							<span>Size</span>
 							<div class="product_size">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li>
-										<input type="radio" id="radio_1" name="product_radio" class="regular_radio radio_1">
+										<input type="radio" id="radio_1" name="product_radio_1" class="regular_radio radio_1">
 										<label for="radio_1">XS</label>
 									</li>
 									<li>
-										<input type="radio" id="radio_2" name="product_radio" class="regular_radio radio_2" checked>
+										<input type="radio" id="radio_2" name="product_radio_2" class="regular_radio radio_2" >
 										<label for="radio_2">S</label>
 									</li>
 									<li>
-										<input type="radio" id="radio_3" name="product_radio" class="regular_radio radio_3">
+										<input type="radio" id="radio_3" name="product_radio_3" class="regular_radio radio_3">
 										<label for="radio_3">M</label>
 									</li>
 									<li>
-										<input type="radio" id="radio_4" name="product_radio" class="regular_radio radio_4">
+										<input type="radio" id="radio_4" name="product_radio_4" class="regular_radio radio_4">
 										<label for="radio_4">L</label>
 									</li>
 									<li>
-										<input type="radio" id="radio_5" name="product_radio" class="regular_radio radio_5">
+										<input type="radio" id="radio_5" name="product_radio_5" class="regular_radio radio_5">
 										<label for="radio_5">XL</label>
 									</li>
 								</ul>
 							</div>
-							<div class="button cart_button"><a href="../cart/<%=rows[0].item_id%>">add to cart</a></div>
+							<div class="button cart_button"><a href="javascript:void()" onclick="document.getElementById('cloth_size').submit(); return false;" >add to cart</a></div>
 						</div>
+					</div>
+						</form>
 					</div>
 				</div>
 			</div>

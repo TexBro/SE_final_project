@@ -10,7 +10,9 @@
 <link href="stylesheets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="stylesheets/styles/cart.css">
 <link rel="stylesheet" type="text/css" href="stylesheets/styles/cart_responsive.css">
-</head>
+</head><link rel="stylesheet" type="text/css" href="stylesheets/styles/checkout.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/styles/checkout_responsive.css">
+
 <body>
 
 <div class="super_container">
@@ -145,15 +147,21 @@
 				<div class="col">
 					<div class="cart_products">
 						<ul>
+							<%
+							var pass_total_price=0;
+							for (var i=0; i<results.length; i++){
+								var oneItem= results[i];
+								pass_total_price=oneItem.product_price+pass_total_price;
+							%>
 							<li class=" cart_product d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
 								<!-- Product Image -->
-								<div class="cart_product_image"><img src="images/cart_product_1.jpg" alt=""></div>
+								<div class="cart_product_image"><img style="width:120px;height:120px;" src="images/<%=oneItem.image1%>" alt="" ></div>
 								<!-- Product Name -->
-								<div class="cart_product_name"><a href="product">2 Piece Swimsuit</a></div>
+								<div class="cart_product_name"><a href="product"><%=oneItem.product_name%></a></div>
 								<div class="cart_product_info ml-auto">
 									<div class="cart_product_info_inner d-flex flex-row align-items-center justify-content-md-end justify-content-start">
 										<!-- Product Price -->
-										<div class="cart_product_price">$35.00</div>
+										<div class="cart_product_price"><%=oneItem.product_price%>원</div>
 										<!-- Product Quantity -->
 										<div class="product_quantity_container">
 											<div class="product_quantity clearfix">
@@ -165,14 +173,18 @@
 											</div>
 										</div>
 										<!-- Products Total Price -->
-										<div class="cart_product_total">$35.00</div>
+										<div class="cart_product_total"><%=oneItem.product_price%>원</div>
 										<!-- Product Cart Trash Button -->
 										<div class="cart_product_button">
-											<button class="cart_product_remove"><img src="images/trash.png" alt=""></button>
+											<button class="cart_product_remove" onclick="window.location.href='./<%=oneItem.cart_id%>'" ><img src="images/trash.png" alt="" ></button>
 										</div>
 									</div>
 								</div>
+
 							</li>
+							<%
+						}
+						%>
 						</ul>
 					</div>
 				</div>
@@ -180,45 +192,96 @@
 			<div class="row">
 				<div class="col">
 					<div class="cart_control_bar d-flex flex-md-row flex-column align-items-start justify-content-start">
-						<button class="button_clear cart_button">clear cart</button>
-						<button class="button_update cart_button">update cart</button>
-						<button class="button_update cart_button_2 ml-md-auto">continue shopping</button>
+						<!--<button class="button_clear cart_button">clear cart</button>
+						<button class="button_update cart_button">update cart</button>-->
+						<button class="button_update cart_button_2 ml-md-auto" onclick="window.location.href='../categories'">continue shopping</button>
 					</div>
 				</div>
 			</div>
+			<form action="./<%=pass_total_price%>" id="checkout_form" method="post">
 			<div class="row cart_extra">
 				<!-- Cart Coupon -->
 				<div class="col-lg-6">
-					<div class="cart_coupon">
-						<div class="cart_title">coupon code</div>
-						<form action="#" class="cart_coupon_form d-flex flex-row align-items-start justify-content-start" id="cart_coupon_form">
-							<input type="text" class="cart_coupon_input" placeholder="Coupon code" required="required">
-							<button class="button_clear cart_button_2">apply coupon</button>
-						</form>
+					<div class="billing">
+						<div class="checkout_title">billing details</div>
+						<div class="checkout_form_container">
+								<div class="d-flex flex-lg-row flex-column align-items-start justify-content-between">
+									<input type="text" name="user_name" class="checkout_input" placeholder="Name" required="required">
+								</div>
+								<input type="hidden" name="total_price" value="<%=total_price%>">
+								<select name="country" id="country" class="country_select checkout_input">
+									<option>대한민국</option>
+									<option>북한</option>
+									<option>미국</option>
+								</select>
+								<textarea name="checkout_comment" id="address" class="checkout_comment" placeholder="상세 주소"></textarea>
+						</div>
 					</div>
 				</div>
 				<!-- Cart Total -->
-				<div class="col-lg-5 offset-lg-1">
-					<div class="cart_total">
-						<div class="cart_title">cart total</div>
-						<ul>
-							<li class="d-flex flex-row align-items-center justify-content-start">
-								<div class="cart_total_title">Subtotal</div>
-								<div class="cart_total_price ml-auto">$35.00</div>
-							</li>
-							<li class="d-flex flex-row align-items-center justify-content-start">
-								<div class="cart_total_title">Shipping</div>
-								<div class="cart_total_price ml-auto">$5.00</div>
-							</li>
-							<li class="d-flex flex-row align-items-center justify-content-start">
-								<div class="cart_total_title">Total</div>
-								<div class="cart_total_price ml-auto">$40.00</div>
-							</li>
-						</ul>
-						<button class="cart_total_button">proceed to checkout</button>
+				<!-- Cart Details -->
+				<div class="col-lg-6">
+					<div class="cart_details">
+						<div class="checkout_title">cart total</div>
+						<div class="cart_total">
+							<ul>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Product</div>
+									<div class="cart_total_price ml-auto">Total</div>
+								</li>
+								<%
+								var total=0;
+								var delivery=0;
+								for (var i=0; i<results.length; i++){
+									var oneItem= results[i];
+									total=oneItem.product_price + total;
+								%>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title"><%=oneItem.product_name%></div>
+									<div class="cart_total_price ml-auto"><%=oneItem.product_price%>원</div>
+								</li>
+								<%
+								}
+								if(total<20000)
+								 delivery=5000;
+								else
+								 delivery=0;
+								%>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Subtotal</div>
+									<div class="cart_total_price ml-auto"><%=total%>원</div>
+								</li>
+								<li class="d-flex flex-row align-items-center justify-content-start">
+									<div class="cart_total_title">Shipping</div>
+									<div class="cart_total_price ml-auto"><%=delivery%>원</div>
+								</li>
+								<%
+								var total_price=total+delivery;
+								%>
+								<li class="d-flex flex-row align-items-start justify-content-start total_row">
+									<div class="cart_total_title">Total</div>
+									<div class="cart_total_price ml-auto"><%=total_price%>원</div>
+								</li>
+							</ul>
+						</div>
+						<div class="payment_options">
+							<div>
+								<input type="radio" id="radio_payment_1" name="regular_radio" class="regular_radio">
+								<label for="radio_payment_1">cash on delivery</label>
+							</div>
+							<div>
+								<input type="radio" id="radio_payment_2" name="regular_radio" class="regular_radio" checked>
+								<label for="radio_payment_2">paypal</label>
+								<div class="visa payment_option"><a href="#"><img src="images/visa.jpg" alt=""></a></div>
+								<div class="master payment_option"><a href="#"><img src="images/master.jpg" alt=""></a></div>
+							</div>
+							<button class="cart_total_button" type="submit">place order</button>
+						</div>
 					</div>
 				</div>
 			</div>
+			</form>
+
 		</div>
 	</div>
 
