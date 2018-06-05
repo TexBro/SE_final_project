@@ -18,7 +18,7 @@ var pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
     database: 'sw_proj3',
-    password: 'conagra1',
+    password: 'kim905',
     multipleStatements:true
 });
 

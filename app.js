@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -30,6 +31,9 @@ var mysql_dbc = require('./commons/db_con.js')();
 var connection = mysql_dbc.init();
 
 var app = express();
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -63,6 +67,9 @@ app.use('/login',login);
 app.use('/productlist', list);
 app.use('./productwrite', write);
 app.use('/cart',express.static('public'));
+app.use('/cart/remove',express.static('public'));
+app.use('/index',express.static('public'));
+
 app.use('/product',express.static('public'));
 app.use('/categories',express.static('public'));
 // catch 404 and forward to error handler
