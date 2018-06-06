@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
         connection.query(sqlForSelectList, function (err, rows) {
             if (err) console.error(err);
             console.log(JSON.stringify(rows));
-            res.render('productlist', {title: 'Express', rows:rows});
+            res.render('productlist', {title: 'productlist', rows:rows});
             connection.release();
         });
     });

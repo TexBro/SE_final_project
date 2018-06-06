@@ -35,10 +35,13 @@ router.get('/:catego',function(req,res,next){
   //res.render('../cart')
   pool.getConnection(function (err, connection){
       var sqlForSelectList = "SELECT item_id, user_id, product_name, product_price, category,discount_rate,image1,image2,image3,description,avg_star FROM t_item WHERE category = ?";
+      var sqlForSelectBest = "SELECT * from t_item where category= ? ORDER BY avg_star DESC limit 5 ";
       connection.query(sqlForSelectList,[catego], function(err, rows) {
           if(err) console.error(err);
-          console.log('\n\n\n\n\n\n'+JSON.stringify(rows));
-          res.render('categories', {title: 'clothes', rows:rows});
+          connection.query(sqlForSelectBest,[catego],function(err,rows2){
+            console.log('\n\n\n\n\n\n'+JSON.stringify(rows));
+            res.render('categories', {title: 'clothes', rows:rows, rows2:rows2});            
+          });
           connection.release();
       });
   });
